@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.107.1.9\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.107.1.9\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.107.1.9\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.107.1.9\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{936D8DFC-8831-4D7A-BC83-2AFEEAFAE66B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>kombo1</RootNamespace>
+    <AssemblyName>kombo1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp, Version=107.1.90.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.107.1.90\lib\net452\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=107.1.90.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.Common.107.1.90\lib\net452\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=107.1.90.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=MSIL">
+      <HintPath>..\packages\CefSharp.WinForms.107.1.90\lib\net462\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.1.1\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillInfoDAO.cs" />
+    <Compile Include="DAO\CategoryDAO.cs" />
+    <Compile Include="DAO\CongThucDAO.cs" />
+    <Compile Include="DAO\CongThucInfoDAO.cs" />
+    <Compile Include="DAO\FoodDAO.cs" />
+    <Compile Include="DAO\InputDAO.cs" />
+    <Compile Include="DAO\ObjectDAO.cs" />
+    <Compile Include="DAO\TableDAO1.cs" />
+    <Compile Include="DAO\UnitsDAO.cs" />
+    <Compile Include="DAO\ViewBillInfoDAO.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\Category.cs" />
+    <Compile Include="DAO\connectionSTR.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="Db\DbConnection.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillInfo.cs" />
+    <Compile Include="DTO\CongThuc.cs" />
+    <Compile Include="DTO\CongThucInfo.cs" />
+    <Compile Include="DTO\Food.cs" />
+    <Compile Include="DTO\Input.cs" />
+    <Compile Include="DTO\Menu.cs" />
+    <Compile Include="DTO\Object1.cs" />
+    <Compile Include="DTO\Table.cs" />
+    <Compile Include="DTO\TonKho.cs" />
+    <Compile Include="DTO\Units.cs" />
+    <Compile Include="DTO\ViewBillInfo.cs" />
+    <Compile Include="View\frmTonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmTonKho.Designer.cs">
+      <DependentUpon>frmTonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmInput.Designer.cs">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmHome1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmHome1.Designer.cs">
+      <DependentUpon>frmHome1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCongThuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCongThuc.Designer.cs">
+      <DependentUpon>frmCongThuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmTable.Designer.cs">
+      <DependentUpon>frmTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmMomo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmMomo.Designer.cs">
+      <DependentUpon>frmMomo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="View\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAccountLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAccountLogin.Designer.cs">
+      <DependentUpon>frmAccountLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCategory.Designer.cs">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDashBoard.Designer.cs">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAdminWorkSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAdminWorkSpace.Designer.cs">
+      <DependentUpon>frmAdminWorkSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmAdminWorkSpace1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmAdminWorkSpace1.Designer.cs">
+      <DependentUpon>frmAdminWorkSpace1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmFood.Designer.cs">
+      <DependentUpon>frmFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmKhuVucBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmKhuVucBan.Designer.cs">
+      <DependentUpon>frmKhuVucBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmQuyen.Designer.cs">
+      <DependentUpon>frmQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmStaffLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmStaffLogin.Designer.cs">
+      <DependentUpon>frmStaffLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KomboDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KomboDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmListBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmListBill.Designer.cs">
+      <DependentUpon>frmListBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\DashBoard.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\frmStaffWorkSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmStaffWorkSpace.Designer.cs">
+      <DependentUpon>frmStaffWorkSpace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\TableDAO.cs" />
+    <EmbeddedResource Include="View\frmTonKho.resx">
+      <DependentUpon>frmTonKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmInput.resx">
+      <DependentUpon>frmInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmHome1.resx">
+      <DependentUpon>frmHome1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmCongThuc.resx">
+      <DependentUpon>frmCongThuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmTable.resx">
+      <DependentUpon>frmTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAdminWorkSpace1.vi.resx">
+      <DependentUpon>frmAdminWorkSpace1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmMomo.resx">
+      <DependentUpon>frmMomo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAccountLogin.resx">
+      <DependentUpon>frmAccountLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmCategory.resx">
+      <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDashBoard.resx">
+      <DependentUpon>frmDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAdminWorkSpace.resx">
+      <DependentUpon>frmAdminWorkSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmAdminWorkSpace1.resx">
+      <DependentUpon>frmAdminWorkSpace1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmFood.resx">
+      <DependentUpon>frmFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmKhuVucBan.resx">
+      <DependentUpon>frmKhuVucBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmListBill.resx">
+      <DependentUpon>frmListBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmQuyen.resx">
+      <DependentUpon>frmQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmStaffLogin.resx">
+      <DependentUpon>frmStaffLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmStaffWorkSpace.resx">
+      <DependentUpon>frmStaffWorkSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="KomboDataSet.xsc">
+      <DependentUpon>KomboDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KomboDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KomboDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KomboDataSet.xss">
+      <DependentUpon>KomboDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh_nen_kombo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kombo_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo256px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_menu_def.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburger_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\average.png" />
+    <Content Include="Resources\Banantrong.jpg" />
+    <Content Include="Resources\Banconguoi.jpg" />
+    <None Include="Resources\SEO-icon.png" />
+    <None Include="Resources\stats_icon.png" />
+    <None Include="Resources\bill.png" />
+    <None Include="Resources\money.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\MoMo_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.107.1.9\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.107.1.9\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.107.1.9\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.107.1.9\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.targets'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.107.1.90\build\CefSharp.Common.targets')" />
+</Project>
